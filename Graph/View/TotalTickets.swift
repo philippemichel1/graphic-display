@@ -19,6 +19,10 @@ struct TotalTickets: View {
                         BarMark(x: .value("Total",musee.total ?? 0),        y:.value("Nom",musee.nom_du_musee))
                             .foregroundStyle(.purple)
                             .opacity(0.5)
+                        // modifie la barre en tube
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                        // corner radius (arrondis simplement le bout)
+                            //.cornerRadius(20)
                             .annotation(position:.trailing) {
                                 Text(String(musee.total ?? 0))
                                     .font(.system(size: 12))

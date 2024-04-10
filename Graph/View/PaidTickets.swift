@@ -19,6 +19,7 @@ struct PaidTickets: View {
                         BarMark(x: .value("Payant",musee.payant ?? 0),        y:.value("Nom",musee.nom_du_musee))
                             .foregroundStyle(.red)
                             .opacity(0.5)
+                            .clipShape(RoundedRectangle(cornerRadius: 16))
                             .annotation(position:.trailing) {
                                 Text(String(musee.payant ?? 0))
                                     .font(.system(size: 12))
