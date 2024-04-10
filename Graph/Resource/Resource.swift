@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
+struct Resource {
+    enum image:String {
+        case closeWindow = "xmark.circle.fill"
+    }
+}
+

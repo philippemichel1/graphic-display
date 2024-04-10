@@ -7,18 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		372ADB122BC6DBB70006F181 /* TotalTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ADB112BC6DBB70006F181 /* TotalTickets.swift */; };
+		372ADB142BC6DC1A0006F181 /* FreeTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ADB132BC6DC1A0006F181 /* FreeTickets.swift */; };
+		372ADB162BC6DC8F0006F181 /* PaidTickets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 372ADB152BC6DC8F0006F181 /* PaidTickets.swift */; };
+		373930F32BC5B5A40036AA09 /* Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 373930F22BC5B5A40036AA09 /* Results.swift */; };
 		37B1FF012BC54772007F5BAD /* GraphApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1FF002BC54772007F5BAD /* GraphApp.swift */; };
 		37B1FF032BC54772007F5BAD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1FF022BC54772007F5BAD /* ContentView.swift */; };
 		37B1FF052BC54774007F5BAD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B1FF042BC54774007F5BAD /* Assets.xcassets */; };
 		37B1FF082BC54774007F5BAD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37B1FF072BC54774007F5BAD /* Preview Assets.xcassets */; };
+		37B1FF102BC54CF3007F5BAD /* APIConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B1FF0F2BC54CF3007F5BAD /* APIConnection.swift */; };
+		37E550452BC7085D00C50599 /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E550442BC7085D00C50599 /* Resource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		372ADB112BC6DBB70006F181 /* TotalTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalTickets.swift; sourceTree = "<group>"; };
+		372ADB132BC6DC1A0006F181 /* FreeTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeTickets.swift; sourceTree = "<group>"; };
+		372ADB152BC6DC8F0006F181 /* PaidTickets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaidTickets.swift; sourceTree = "<group>"; };
+		373930F22BC5B5A40036AA09 /* Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Results.swift; sourceTree = "<group>"; };
 		37B1FEFD2BC54772007F5BAD /* Graph.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Graph.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37B1FF002BC54772007F5BAD /* GraphApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphApp.swift; sourceTree = "<group>"; };
 		37B1FF022BC54772007F5BAD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		37B1FF042BC54774007F5BAD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37B1FF072BC54774007F5BAD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		37B1FF0F2BC54CF3007F5BAD /* APIConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConnection.swift; sourceTree = "<group>"; };
+		37E550442BC7085D00C50599 /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,9 +63,12 @@
 		37B1FEFF2BC54772007F5BAD /* Graph */ = {
 			isa = PBXGroup;
 			children = (
+				37E550432BC7082200C50599 /* Resource */,
+				37B1FF072BC54774007F5BAD /* Preview Assets.xcassets */,
 				37B1FF002BC54772007F5BAD /* GraphApp.swift */,
-				37B1FF022BC54772007F5BAD /* ContentView.swift */,
-				37B1FF042BC54774007F5BAD /* Assets.xcassets */,
+				37B1FF112BC54D3A007F5BAD /* Model */,
+				37B1FF0E2BC54BF8007F5BAD /* Connection */,
+				37B1FF142BC55441007F5BAD /* View */,
 				37B1FF062BC54774007F5BAD /* Preview Content */,
 			);
 			path = Graph;
@@ -62,9 +77,44 @@
 		37B1FF062BC54774007F5BAD /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				37B1FF072BC54774007F5BAD /* Preview Assets.xcassets */,
+				37B1FF042BC54774007F5BAD /* Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		37B1FF0E2BC54BF8007F5BAD /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				37B1FF0F2BC54CF3007F5BAD /* APIConnection.swift */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		37B1FF112BC54D3A007F5BAD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				373930F22BC5B5A40036AA09 /* Results.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		37B1FF142BC55441007F5BAD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				37B1FF022BC54772007F5BAD /* ContentView.swift */,
+				372ADB112BC6DBB70006F181 /* TotalTickets.swift */,
+				372ADB132BC6DC1A0006F181 /* FreeTickets.swift */,
+				372ADB152BC6DC8F0006F181 /* PaidTickets.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		37E550432BC7082200C50599 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				37E550442BC7085D00C50599 /* Resource.swift */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +187,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37B1FF102BC54CF3007F5BAD /* APIConnection.swift in Sources */,
+				37E550452BC7085D00C50599 /* Resource.swift in Sources */,
 				37B1FF032BC54772007F5BAD /* ContentView.swift in Sources */,
+				372ADB122BC6DBB70006F181 /* TotalTickets.swift in Sources */,
+				373930F32BC5B5A40036AA09 /* Results.swift in Sources */,
+				372ADB162BC6DC8F0006F181 /* PaidTickets.swift in Sources */,
 				37B1FF012BC54772007F5BAD /* GraphApp.swift in Sources */,
+				372ADB142BC6DC1A0006F181 /* FreeTickets.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +336,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +366,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
