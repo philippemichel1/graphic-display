@@ -17,6 +17,8 @@ struct PaidTickets: View {
                 Chart{
                     ForEach(connectionmusee.listMusee,id: \.ref_musee) {musee  in
                         BarMark(x: .value("Payant",musee.payant ?? 0),        y:.value("Nom",musee.nom_du_musee))
+                            .foregroundStyle(.red)
+                            .opacity(0.5)
                             .annotation(position:.trailing) {
                                 Text(String(musee.payant ?? 0))
                                     .font(.system(size: 12))

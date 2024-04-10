@@ -17,6 +17,8 @@ struct FreeTickets: View {
                 Chart{
                     ForEach(connectionmusee.listMusee,id: \.ref_musee) {musee  in
                         BarMark(x: .value("Gratuit",musee.gratuit ?? 0),        y:.value("Nom",musee.nom_du_musee))
+                            .foregroundStyle(.green)
+                            .opacity(0.5)
                             .annotation(position:.trailing) {
                                 Text(String(musee.gratuit ?? 0))
                                     .font(.system(size: 12))

@@ -44,7 +44,7 @@ struct ContentView: View {
                         Text("Total des entrées")
                     })
                     .frame(width: 100, height: 80)
-                    .background(.gray)
+                    .background(.purple)
                     .foregroundColor(.white)
                     .cornerRadius(10)
                     .buttonStyle(BorderedButtonStyle())
