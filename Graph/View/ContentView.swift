@@ -91,7 +91,7 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationTitle("Fréquentation des Musée")
+            .navigationTitle("Fréquentation des Musées")
             
         }
         .onAppear {
