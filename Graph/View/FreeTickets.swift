@@ -27,6 +27,12 @@ struct FreeTickets: View {
                             }
                     }
                 }
+                .frame(height:350)
+                // scroll vertical du graphique
+                .chartScrollableAxes(.vertical)
+                // nombre elements visible
+                .chartYVisibleDomain(length: 6)
+                .chartLegend(.visible)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button(action: {
@@ -36,6 +42,7 @@ struct FreeTickets: View {
                         }
                     }
                 }
+                Spacer()
             }
             .chartLegend(.visible)
             .navigationTitle("Tickets gratuits")

@@ -30,6 +30,12 @@ struct TotalTickets: View {
                             }
                     }
                 }
+                .frame(height:350)
+                // scroll vertical du graphique
+                .chartScrollableAxes(.vertical)
+                // nombre de lignes visible dans le graphique
+                .chartYVisibleDomain(length: 6)
+                .chartLegend(.visible)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button(action: {
@@ -39,10 +45,10 @@ struct TotalTickets: View {
                         }
                     }
                 }
+                Spacer()
             }
-            .chartLegend(.visible)
             .navigationTitle("Total tickets")
-            .padding()
+            
         }
         // affichage de la vue
         .onAppear {

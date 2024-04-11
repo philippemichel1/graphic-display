@@ -17,12 +17,12 @@ class APIConnection {
     func connectJson() async  {
         let statusTache = Task {() in
             // verification chaine de type url
-            guard let urlString = URL(string: "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/frequentation-des-musees-de-france/records?limit=10") else {return}
+            guard let urlString = URL(string: "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/frequentation-des-musees-de-france/records?limit=20") else {return}
             do {
                 // connexion url session
                 let (myData, _) = try await URLSession.shared.data(from: urlString)
                 let musee = try JSONDecoder().decode(APIreults.self, from: myData)
-                print(musee.results.count)
+                //print(musee.results.count)
                 listMusee = musee.results
                 sortMuseeName()
                 

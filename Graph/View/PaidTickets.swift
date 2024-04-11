@@ -27,6 +27,12 @@ struct PaidTickets: View {
                             }
                     }
                 }
+                .frame(height:350)
+                // scroll vertical
+                .chartScrollableAxes(.vertical)
+                // nombre elements visible
+                .chartYVisibleDomain(length: 6)
+                .chartLegend(.visible)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button(action: {
@@ -36,8 +42,8 @@ struct PaidTickets: View {
                         }
                     }
                 }
+                Spacer()
             }
-            .chartLegend(.visible)
             .navigationTitle("Tickets payants")
             .padding()
         }
