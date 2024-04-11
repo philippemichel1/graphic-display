@@ -32,9 +32,12 @@ struct ContentView: View {
                 Text(textToShow)
                     .font(.headline)
                     .padding()
-                    .foregroundColor(.accentColor)
+                    .foregroundColor(.primary)
+                    .background(.gray)
+                    .cornerRadius(buttonCorner)
+                    .shadow(color:.primary, radius: buttonCorner)
                     .frame(width: 350, height: 150)
-                
+                Spacer()
                 HStack(spacing: 7){
                     if endOfSentance {
                         Button(action: {
@@ -75,6 +78,7 @@ struct ContentView: View {
                         .buttonStyle(BorderedButtonStyle())
                     }
                 }
+                Spacer()
                 .fullScreenCover(isPresented: $showViewGraph) {
                     switch buttonPressed {
                     case 0:
