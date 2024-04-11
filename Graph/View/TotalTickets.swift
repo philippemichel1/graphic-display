@@ -31,11 +31,12 @@ struct TotalTickets: View {
                     }
                 }
                 .frame(height:350)
+                // pas besoin de legende  ici 
+                //.chartLegend(position: .top,alignment: .leading,spacing: 10)
                 // scroll vertical du graphique
                 .chartScrollableAxes(.vertical)
                 // nombre de lignes visible dans le graphique
                 .chartYVisibleDomain(length: 6)
-                .chartLegend(.visible)
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
                         Button(action: {

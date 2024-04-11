@@ -28,6 +28,8 @@ struct FreeTickets: View {
                     }
                 }
                 .frame(height:350)
+                // pas besoin de legende  ici
+                //.chartLegend(position: .top,alignment: .leading,spacing: 10)
                 // scroll vertical du graphique
                 .chartScrollableAxes(.vertical)
                 // nombre elements visible
