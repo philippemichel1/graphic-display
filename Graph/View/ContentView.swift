@@ -17,7 +17,7 @@ struct ContentView: View {
     @State private var textToShow = ""
     @State private var currentIndex = 0
     @State private var endOfSentance:Bool = false
-    let fullText = "Insérer facilement des graphiques dans vos applications. Dans cet exemple j'utilise une API de fréquentation des musées."
+    let fullText = "Insérer facilement des graphiques dans vos applications. Dans cet exemple, j'utilise une API de fréquentation des musées."
     
     var connectionmusee:APIConnection = APIConnection()
     @State var showViewGraphTotal:Bool = false
