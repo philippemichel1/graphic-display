@@ -17,11 +17,12 @@ struct ContentView: View {
     @State private var textToShow = ""
     @State private var currentIndex = 0
     @State private var endOfSentance:Bool = false
-    let fullText = "Insérer facilement des graphiques dans vos applications."
+    let fullText = "Insérer facilement des graphiques dans vos applications. Dans cet exemple j'utilise une API de fréquentation des musées."
     
     var connectionmusee:APIConnection = APIConnection()
-    @State var buttonPressed:Int?
-    @State var showViewGraph:Bool = false
+    @State var showViewGraphTotal:Bool = false
+    @State var showViewGraphPaid:Bool = false
+    @State var showViewGraphFree:Bool = false
     let buttonWidth:CGFloat = 110
     let buttonHeight:CGFloat = 80
     let buttonCorner:CGFloat = 10
@@ -41,7 +42,8 @@ struct ContentView: View {
                 HStack(spacing: 7){
                     if endOfSentance {
                         Button(action: {
-                            getNumberPress(numberButton: 0)
+                            // getNumberPress(numberButton: 0)
+                            self.showViewGraphPaid.toggle()
                             
                         }, label: {
                             Text("Entrées Payantes")
@@ -53,7 +55,7 @@ struct ContentView: View {
                         .cornerRadius(buttonCorner)
                         .buttonStyle(BorderedButtonStyle())
                         Button(action: {
-                            getNumberPress(numberButton: 1)
+                            self.showViewGraphFree.toggle()
                             
                             
                         }, label: {
@@ -66,7 +68,7 @@ struct ContentView: View {
                         .cornerRadius(buttonCorner)
                         .buttonStyle(BorderedButtonStyle())
                         Button(action: {
-                            getNumberPress(numberButton: 2)
+                            self.showViewGraphTotal.toggle()
                         }, label: {
                             Text("Total entrées")
                                 .multilineTextAlignment(.center)
@@ -79,17 +81,18 @@ struct ContentView: View {
                     }
                 }
                 Spacer()
-                .fullScreenCover(isPresented: $showViewGraph) {
-                    switch buttonPressed {
-                    case 0:
-                        PaidTickets()
-                    case 1:
-                        FreeTickets()
-                    default:
+                // ouvre les fenetres avec les graphiques
+                    .fullScreenCover(isPresented: $showViewGraphTotal) {
                         TotalTickets()
-                        
                     }
-                }
+                    .fullScreenCover(isPresented: $showViewGraphPaid) {
+                        PaidTickets()
+                    }
+                
+                    .fullScreenCover(isPresented: $showViewGraphFree) {
+                        FreeTickets()
+                    }
+                
             }
             .navigationTitle("Fréquentation des Musées")
             
@@ -99,12 +102,6 @@ struct ContentView: View {
                 showNextLetter()
             }
         }
-    }
-    // obtenir le bouron qui est appuyé
-    func getNumberPress(numberButton:Int) {
-        buttonPressed = numberButton
-        print("numero Bouton: \(buttonPressed!)")
-        self.showViewGraph = true
     }
     // animation sur le texte
     func showNextLetter() {

@@ -20,7 +20,7 @@ struct TotalTickets: View {
                             .foregroundStyle(.purple)
                             .opacity(0.5)
                         // modifie la barre en tube
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                            //.clipShape(RoundedRectangle(cornerRadius: 16))
                         // corner radius (arrondis simplement le bout)
                             //.cornerRadius(20)
                             .annotation(position:.trailing) {

@@ -19,7 +19,8 @@ struct FreeTickets: View {
                         BarMark(x: .value("Gratuit",musee.gratuit ?? 0),        y:.value("Nom",musee.nom_du_musee))
                             .foregroundStyle(.green)
                             .opacity(0.5)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
+                        // transformer la barre en tube
+                            //.clipShape(RoundedRectangle(cornerRadius: 16))
                             .annotation(position:.trailing) {
                                 Text(String(musee.gratuit ?? 0))
                                     .font(.system(size: 12))
