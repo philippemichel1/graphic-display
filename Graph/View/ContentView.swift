@@ -13,16 +13,18 @@ struct ContentView: View {
         UINavigationBar.appearance().largeTitleTextAttributes = [.font : UIFont.preferredFont(forTextStyle: .footnote)]
         UINavigationBar.appearance().titleTextAttributes = [.font : UIFont.preferredFont(forTextStyle: .footnote)]
     }
+    private var buttons:[String] = ["Entrées Payantes", "Entrées Gratuites", "Total entrées"]
+    private var colors:[Color] = [.red, .green, .purple]
     
+    @State private var buttonSelected:String = "Entrées Payantes"
     @State private var textToShow = ""
     @State private var currentIndex = 0
+    @State private var showView:Bool = false
     @State private var endOfSentance:Bool = false
     let fullText = "Insérer facilement des graphiques dans vos applications. Dans cet exemple, j'utilise une API de fréquentation des musées."
     
     var connectionmusee:APIConnection = APIConnection()
-    @State var showViewGraphTotal:Bool = false
-    @State var showViewGraphPaid:Bool = false
-    @State var showViewGraphFree:Bool = false
+    
     let buttonWidth:CGFloat = 110
     let buttonHeight:CGFloat = 80
     let buttonCorner:CGFloat = 10
@@ -39,58 +41,41 @@ struct ContentView: View {
                     .shadow(color:.primary, radius: buttonCorner)
                     .frame(width: 350, height: 150)
                 Spacer()
-                HStack(spacing: 7){
-                    if endOfSentance {
-                        Button(action: {
-                            // getNumberPress(numberButton: 0)
-                            self.showViewGraphPaid.toggle()
-                            
-                        }, label: {
-                            Text("Entrées Payantes")
-                                .multilineTextAlignment(.center)
-                        })
-                        .frame(width: buttonWidth, height: buttonHeight)
-                        .background(.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(buttonCorner)
-                        .buttonStyle(BorderedButtonStyle())
-                        Button(action: {
-                            self.showViewGraphFree.toggle()
-                            
-                            
-                        }, label: {
-                            Text("Entrées Gratuites")
-                                .multilineTextAlignment(.center)
-                        })
-                        .frame(width: buttonWidth, height: buttonHeight)
-                        .background(.green)
-                        .foregroundColor(.white)
-                        .cornerRadius(buttonCorner)
-                        .buttonStyle(BorderedButtonStyle())
-                        Button(action: {
-                            self.showViewGraphTotal.toggle()
-                        }, label: {
-                            Text("Total entrées")
-                                .multilineTextAlignment(.center)
-                        })
-                        .frame(width: buttonWidth, height: buttonHeight)
-                        .background(.purple)
-                        .foregroundColor(.white)
-                        .cornerRadius(buttonCorner)
-                        .buttonStyle(BorderedButtonStyle())
+                
+                if endOfSentance {
+                    HStack(spacing: 6){
+                        ForEach(0..<3) {index in
+                            Button (action: {
+                                buttonSelected = buttons[index]
+                                self.showView.toggle()
+                                
+                            }, label: {
+                                Text(buttons[index]).tag(index)
+                            })
+                            .frame(width: buttonWidth, height: buttonHeight)
+                            .buttonStyle(BorderedButtonStyle())
+                            .background(colors[index])
+                            .foregroundColor(.white)
+                            .cornerRadius(buttonCorner)
+                        }
                     }
+                    .padding(.leading)
+                    Text(buttonSelected)
+                        .opacity(0)
                 }
                 Spacer()
                 // ouvre les fenetres avec les graphiques
-                    .fullScreenCover(isPresented: $showViewGraphTotal) {
-                        TotalTickets()
-                    }
-                    .fullScreenCover(isPresented: $showViewGraphPaid) {
-                        PaidTickets()
-                    }
-                
-                    .fullScreenCover(isPresented: $showViewGraphFree) {
-                        FreeTickets()
+                    .fullScreenCover(isPresented: $showView) {
+                        switch buttonSelected {
+                        case "Entrées Gratuites":
+                            FreeTickets()
+                        case "Total entrées":
+                            TotalTickets()
+                            
+                        default:
+                            PaidTickets()
+                        }
+                        
                     }
                 
             }
@@ -105,7 +90,6 @@ struct ContentView: View {
     }
     // animation sur le texte
     func showNextLetter() {
-        // guard currentIndex < fullText.count else { return }
         if currentIndex < fullText.count {
             textToShow += String(fullText[fullText.index(fullText.startIndex, offsetBy: currentIndex)])
             currentIndex += 1
